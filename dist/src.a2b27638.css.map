@@ -1,0 +1,1 @@
+{"version":3,"sources":["src/styles/index.scss","src/styles/theme.scss"],"names":[],"mappings":"AAEA;EACE;EACA,kBCJG","file":"src.a2b27638.css","sourceRoot":"..","sourcesContent":["@import \"./theme.scss\";\r\n\r\nbody {\r\n  margin: 0;\r\n  background-color: $bg;\r\n}\r\n","$bg: #fafafa;\r\n"]}
