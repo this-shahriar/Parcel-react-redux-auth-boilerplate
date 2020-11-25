@@ -1,1 +1,0 @@
-{"version":3,"sources":["src/styles/index.scss"],"names":[],"mappings":"AAEA,KACE,QAAA,CACA","file":"src.a9160ab0.css","sourceRoot":"..","sourcesContent":["@import \"./theme.scss\";\r\n\r\nbody {\r\n  margin: 0;\r\n  background-color: $bg;\r\n}\r\n"]}
