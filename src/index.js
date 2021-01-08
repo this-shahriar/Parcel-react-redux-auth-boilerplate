@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
-import Home from "./pages/Home";
 import "./styles/index.scss";
-import { createStore, applyMiddleware } from "redux";
-import thunk from "redux-thunk";
-import { Provider } from "react-redux";
-import rootReducer from "./store/reducers";
+import { Provider, useDispatch } from "react-redux";
+import { store } from "./store";
+import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { mainRoutes } from "./routes";
+import { ErrorPage } from "./components/ErrorPage";
+import { autoLogin } from "./store/actions/userActions";
 
-const store = createStore(rootReducer, applyMiddleware(thunk));
+const App = () => {
+  const dispatch = useDispatch();
+
+  dispatch(autoLogin());
+  return (
+    <BrowserRouter>
+      <Switch>
+        {mainRoutes?.map((item) => (
+          <Route {...item} exact />
+        ))}
+        <Route path="*" component={ErrorPage} />
+      </Switch>
+    </BrowserRouter>
+  );
+};
 
 ReactDOM.render(
   <Provider store={store}>
-    <Home />
+    <App />
   </Provider>,
   document.getElementById("root")
 );
